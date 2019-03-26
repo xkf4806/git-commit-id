@@ -2,6 +2,7 @@ package com.example.spring.gitcommitid.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.context.annotation.Configuration;
 
 import java.net.InetAddress;
@@ -17,7 +18,8 @@ public class AcmeProperties {
    * type
    */
   private String type;
-  private final Security security = new Security();
+  @NestedConfigurationProperty
+  private Security security = new Security();
   /**
    * describe if it is enabled
    */
