@@ -1,4 +1,4 @@
-package com.example.spring.gitcommitid;
+package com.example.spring.gitcommitid.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
