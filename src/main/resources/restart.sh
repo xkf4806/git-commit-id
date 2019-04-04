@@ -10,5 +10,5 @@ else
     echo ">>> START git-commit service......"
 fi
     sleep 1 
-    nohup java -Dspring.profiles.active=default -jar /data/app/git-commit-id/git-commit-id-0.0.1-SNAPSHOT.jar
-    > /data/app/trust-manage-system/out.log 2>&1 &
+    nohup java -Dspring.profiles.active=local -jar /data/app/git-commit-id/git-commit-id-0.0.1-SNAPSHOT.jar
+    > /data/app/git-commit-id/out.log 2>&1 &
