@@ -1,6 +1,7 @@
 package com.example.spring.gitcommitid.controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +24,7 @@ public class CommitInfoController {
   @Value("${git.commit.id}")
   private String commitId;
 
-  @GetMapping(value = "/version")
+  @GetMapping(value = "/version", produces = {MediaType.APPLICATION_JSON_VALUE})
   public String versionInformation() {
     return readGitProperties();
   }

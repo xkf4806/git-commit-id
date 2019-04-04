@@ -6,8 +6,6 @@ import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import io.restassured.RestAssured;
 import io.restassured.authentication.FormAuthConfig;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,14 +13,7 @@ import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
-
-import io.restassured.RestAssured.*;
-import io.restassured.matcher.RestAssuredMatchers.*;
-import org.hamcrest.Matchers.*;
-
-import java.util.ArrayList;
 
 /**
  * @author xinj.x
@@ -81,5 +72,9 @@ public class RestAssuredTest {
             .log().all()
             .when()
             .post();
+
+    get("/version").then()
+            .assertThat()
+            .body("$[git.branch]", equalTo("master"));
   }
 }
