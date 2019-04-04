@@ -165,7 +165,7 @@
                             <fromFile>target/${project.name}-${project.version}.jar</fromFile>
                             <url>scp://192.168.168.121/data/app/${project.name}</url>
                             <commands>
-                                <command>sh /data/app/trust-manage-system/restart.sh</command>
+                                <command>sh /data/app/${project.name}/restart.sh</command>
                             </commands>
                             <!-- 显示运行命令的输出结果 -->
                             <displayCommandOutputs>true</displayCommandOutputs>
