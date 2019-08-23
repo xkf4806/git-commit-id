@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>合同</title>
+    <style type="text/css">
+        html{ font-family: SimSun;}
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+        form,fieldset,input,textarea,p,blockquote,th,td {
+            padding: 0;
+            margin: 0;
+
+        }
+        .clearfix:after{
+            content: " ";
+            display: block;
+            clear: both;
+        }
+        .fl{ float: left;}
+        .fr{float: right;}
+        /*body{font-family: SimSun;font-size: 7pt; line-height: 2.2}*/
+        .wrap{width: 690px; margin: 0 auto; }
+        .top{width: 690px;height: 64px;margin: 0 auto;}
+        .top>span{ width: 35%;text-align:center;float: left;height: 64px;}
+        .top .contract-time{width:41%; float: right; padding-top: 10px; overflow: hidden;}
+        .top img{ height: 64px;}
+        .title{ text-align: center; }
+        .andisseo{ font-size: 18px; font-weight: bold;}
+        .pact{ font-size: 14px; font-weight: bold;margin-top: 5px;}
+        /**/
+        .seller_details{ width: 690px;border: 1px solid #000000;margin: 0 auto;}
+        .seller_details p{ padding-left: 10px; line-height: 22px;font-size: 14px;}
+        .seller_details .p1{ margin-top: 5px;}
+        .seller_details p .buyer{ margin-left: 122px;}
+        .seller_details p .buyer_Adress{ margin-left: 48px;}
+        .seller_details p .buyer_tel{ margin-left: 142px;}
+        .product{ width: 690px;}
+        .product table{ width: 690px;border-collapse:collapse}
+
+        .product table tr td{ text-align: center;border: 1px solid #000000;}
+        .border_th th{ border: 1px solid #000000;}
+        .total_money{ border-top: 1px solid #000;border-bottom: 1px solid #000;}
+        .common_border{ border-top: 1px solid #000000;}
+        .common_border span{ display: inline-block; width:40%;}
+        .common_border .Adress{ padding-left:7px; }
+        .common_border .border_right{ border-right: 1px solid #000000}
+
+        .product_list{ font-weight: bold;}
+        /*.seller_name{ padding-left: 10px;}*/
+        .seller_name tr{ line-height: 16px;}
+        .buyer_Name{ padding-left: 109px;}
+        /*补充条款*/
+        .content{ width: 690px;margin: 0 auto;}
+        .content p{ font-size: 12px;  line-height: 14px;}
+        .product_list{ line-height: 16px;}
+        .product_details_head{ width: 100%;}
+        .product_details_head span{ font-size: 14px; font-weight: bold;}
+        /**/
+        .seller_deal,.buyer_deal{width: 48%;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="top">
+        <span><img th:src="${imgUrl}" height="200px" width="230px" alt="测试图片" /></span>
+        <div class="contract-time">
+            <p><span>合同日期：<span th:text="${now}" /></span></p>
+            <p class="agreeId"><span>合同编号：<span th:text="${contractNo}" /> </span></p>
+        </div>
+    </div>
+    <div class="title">
+        <h2 class="andisseo">安迪苏生命科学制品(上海)有限公司</h2>
+        <p class="pact">销 售 合 同</p>
+    </div>
+    <div class="seller_details">
+        <p class="p1">
+            <span>卖方: 安迪苏生命科学制品(上海)有限公司</span>
+            <span class="buyer">买方：安迪苏生命科学制品(上海)有限公司</span>
+        </p>
+        <p>
+            <span>上海浦东新区芳甸路1155号嘉里城1003-1006室（201204)</span>
+            <span style="padding-left:20px;">上海浦东新区芳甸路1155号嘉里城1003-1006室</span>
+        </p>
+        <p>
+            <span>电话:021-61696900 传真:021-61696970</span>
+            <span class="buyer_tel"><span>电话:021-61696900</span><span style="padding-left: 20px;">传真:021-61696970</span></span>
+        </p>
+        <p>开户银行：中国银行上海市外高桥保税区支行</p>
+        <p>银行账号：446861022802556668888</p>
+        <p class="total_money">总金额（含增值税）：*********元 (大写金额：******元整)</p>
+        <p class="pay_ment">付款条件：发/提货前付清，*******元</p>
+        <p class="common_border">
+            <span class="border_right">发票类型：普通发票</span>
+            <span class="Adress">单证寄至：买方地址</span>
+        </p>
+        <p class="common_border">
+            <span class="border_right">发货条件：收到本合同货款 ****** 元后</span>
+            <span>交货时间：满足发货条件后7天内交货</span>
+        </p>
+        <p class="common_border">
+            <span class="border_right">运输方式：卡车</span>
+            <span>运输费用：含在总价内</span>
+        </p>
+        <p class="common_border">
+            <span class="border_right">运输保险：含在总价内</span>
+            <span>包装标记：原厂商</span>
+        </p>
+        <p class="common_border">
+            <span class="border_right">收货单位：*****有限公司</span>
+            <span>收 货 人：</span>
+        </p>
+        <p class="common_border">
+            交货地点：
+        </p>
+    </div>
+    <div class="product">
+        <p class="product_list">货物清单：</p>
+        <table border="0" cellspacing="0" cellpadding="0">
+            <tr class="border_th">
+                <th>序号</th>
+                <th>产品编号</th>
+                <th>产品名称</th>
+                <th>数量(公斤)</th>
+                <th>单位</th>
+                <th>含税单价(元)</th>
+                <th>税率</th>
+                <th>折扣</th>
+                <th>金额(元)</th>
+            </tr>
+            <tbody>
+            <tr>
+                <td>10</td>
+                <td>D1605291554136315</td>
+                <td>罗迪美</td>
+                <td>500KG</td>
+                <td>KG</td>
+                <td>1.5%</td>
+                <td>100</td>
+                <td>100</td>
+                <td>12,0000.00</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>D1605291554136315</td>
+                <td>罗迪美</td>
+                <td>500KG</td>
+                <td>KG</td>
+                <td>1.5%</td>
+                <td>100</td>
+                <td>100</td>
+                <td>12,0000.00</td>
+            </tr>
+            <tr>
+                <td colspan="4"> 总量(KG)：</td>
+                <td colspan="5">总金额(元)：</td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td colspan="5">实际金额（元）：</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="content clearfix">
+        <h6>补充条款：</h6>
+        <p>1.买方在卖方签署本合同后三个工作日内签署并传达至卖方，本合同自送达（包括但不限于传真、电邮或快件）卖方之日起生效，有效期三十天。如需款到发货，买方需在合同生效后十日内将所需货款汇到卖方指定账户，否则合同自动失效。本合同由买卖双方<br/>各执一份，且传真件与原件具有同等法律效力。</p>
+        <p>2.当卖方提供的货物符合合同约定时，买方应当按照本合同约定，及时确认签收并支付货款。买方逾期未向卖方支付本合同货款的，应当承担违约责任。卖方有权对该等货物另行处置以减少损失，基于买方违约行为造成的所有损失由买方承担。买方支付部分货<br/>款但未结清的，自卖方催告之日起5日内，买方应向卖方支付未结清货款。自卖方催告之日起5日后仍不予结清货款的，买方有义务<br/>将上述未结清的货物完整安全地返还至卖方，由此产生的一切损失、损害及费用均由买方承担。(鉴于本合同之目的，未结清的货<br/>物数量不是整数包装时，均应按进一位数量以整数包装计算为准)</p>
+        <p>3.若交货时发现货物短缺或外包装破，买方应在收到货物之日起五个工作日内向卖方提供经交货方签字的短货报告或货损报告并附<br/>货损照片，经卖方确认后，卖方应补足短缺数量或按短货金额退款给买方。买方确认，卖方对0.2%以下因外包装损坏而引起的短货<b/>不予补偿。如买方发现货物质量与合同规定不符，买方须在收货后十天内提供书面验收报告，卖方确认后应调换不合格货物或将不<br/>合格货物折让销售给买方作为补偿。对验收报告有异议时，卖方有权要求退货或要求送样至国家权威饲料检测机构进行检验。除非<br/>另有规定，货物验收标准和不合格比例，以中国农业部标准或制造厂出厂标准为准。若双方协商确定以退货方式处理，买方须确保<br/>货物包装及运输符合本合同规定的安全标准，且不影响卖方的再次销售，若因买方原因导致货物损耗的，由此产生的一切损失、损<br/>害及费用均由买方承担。</p>
+        <p>4.未经对方同意，卖方拖延交货或买方拖延付款，拖延一方每延迟一天，需向合同另一方支付货款金额0.1%的违约金。</p>
+        <p>5.在不可抗力情况下，卖方对交货延迟或不能交货不负责任，包括但不限于火灾、水灾、地震、暴风雨、罢工、停工、征用、战争、暴动、骚乱、敌对、封锁、以及约定期间阻碍交货的其它意外事故。卖方须在十天内向买方书面说明。</p>
+        <p>6.本合同遵守中华人民共和国合同法的有关规定及其法律解释。如本合同与其它任何所签文件不一致，则以本合同为准。凡因执行<br/>本合同所发生的或与本合同有关的一切争议，应由双方通过协商予以解决。如协商不妥，合同双方均可向卖方所在地有管辖权的人<br/>民法院提起诉讼。</p>
+        <p>7.本公司销售的罗迪美AT88-蛋氨酸羟基类似物产品，售价中包含设备使用及服务费。</p>
+        <p>8.卖、买双方承诺，为达成及/或履行本合同，其董事、管理人员、雇员、代理人或顾问不曾也不会违反任何相关的法律法规，向本<br/>合同对方、任何相关第三方的董事、管理人员、雇员、代理人或者顾问在内的任何有关人员直接或间接地提供资金、礼品或其他任<b/>何有价物品、服务，或者从事任何其他贿赂行为。双方确认，任何一方违反前述规定的行为都将给对方造成损害，并应当向对方支<br/>付违约金作为补偿，违约金金额为五万元。</p>
+        <p>9.本合同未尽事宜，由双方协商并签订补充协议，补充协议与本合同具同等法律效力。</p>
+    </div>
+    <div class="clearfix" style="margin-top: 3px;">
+        <div class="seller_deal fl">
+            <p><span>卖方：安迪苏生命科学制品（上海）有限公司</span></p>
+            <p>经办联系人：<span>____________</span>复核：<span>____________</span></p>
+            <p>于<span>____________</span>，在   上海   签署。</p>
+        </div>
+        <div class="buyer_deal fl">
+            <p><span>买方：****有限公司</span></p>
+            <p>经办联系人：<span>____________</span></p>
+            <p>于<span>____________</span>，在 <span>____________</span>签署。</p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
